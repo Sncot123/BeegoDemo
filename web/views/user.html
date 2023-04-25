@@ -1,0 +1,37 @@
+<div>
+
+    用户：
+    <br>
+    USER:{{.Name}}<br>
+    AGE:{{.Age}}<br>
+    {{range .arrays}}
+    {{.}}
+    {{end}}
+    <hr>
+
+    {{range $i,$v:=.arrays}}
+    {{$i}}->    {{$v}}<br>
+    {{end}}
+
+    <hr>
+    {{ range .array_struct}}
+    {{.UserName}}->{{.Age}}<br>
+    {{end}}
+
+    <hr>
+    {{ range $i,$v:=.array_struct}}
+    {{$i}}->{{$v.UserName}}-->{{$v.Age}}<br>
+    {{end}}
+
+    <hr>
+    map<br>
+    {{.maps}}<br>
+    {{range .maps}}
+    {{.}}<br>
+    {{end}}
+    <hr>
+    {{range $k,$v:=.map_struct}}
+    {{$k}}->{{$v.UserName}}-->{{$v.Age}}<br>
+    {{end}}
+
+</div>

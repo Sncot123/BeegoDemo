@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax</title>
+  <script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+</head>
+<body>
+<form >
+  名字：<input type="text"  id="na"><br>
+  年龄：<input type="text"  id="ag"><br>
+  <input type="button" value="提交" id="bu">
+</form>
+
+<script>
+  var bu = document.getElementById("bu");
+  bu.onclick=function(ev){
+    var name = document.getElementById("na").value;
+    var age = document.getElementById("ag").value;
+    alert(name);
+    alert(age)
+    $.ajax({
+      url:"/tajax",
+      type:"POST",
+      data:JSON.stringify({
+        "username":name,
+        "age":Number(age)
+      }),
+      dataType:"JSON",
+      success:function(data){
+          var code =data["code"];
+          var msg = data["msg"]
+          if(code=="200"){
+              alert("success!!!")
+          };
+        alert(msg)
+      },
+      error:function(data){
+        alert("failed!!!!")
+      }
+    })
+  }
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>template_view</title>
+</head>
+<body>
+<div>
+   {{.name}}
+  <br>
+  {{ range .arr}}
+  {{.}} --->{{$.name}}<br>
+  {{end}}<br>
+
+    {{"haasfsad"}}<br>
+    {{`asdhjfgash`}}<br>
+    {{'a'}}<br>
+    {{"frsgsd"|len}}<br>
+
+    {{with .stuc}}
+        {{if ge .Age 18}}
+        大于等于18
+            {{if eq $.vip 1}}
+            是会员，{{.UserName}}可以进入
+            {{else}}
+            不是会员，禁止{{.UserName}}进入
+            {{end}}
+        {{else}}
+        {{.UserName}}年龄小于18，是{{.Age}}。禁止进入
+        {{end}}
+    {{end}}<br>
+
+    {{template "template2.html" .}}<br>引入模板
+
+    {{define "mytemplate"}}
+    <ul>
+        <li>.name</li>
+        <li>.name</li>
+        <li>.name</li>
+        <li>.name</li>
+    </ul>
+    {{end}}
+    {{template "mytemplate" .}}
+</div>
+</body>
+</html>
