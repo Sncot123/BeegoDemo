@@ -1,0 +1,30 @@
+<!DOCTYPE HTML >
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>首页</title>
+</head>
+<body>
+
+<table>
+  <tr>
+    <td>标题</td>
+    <td>作者</td>
+    <td>文章</td>
+    <td><a href="/add">添加</a></td>
+  </tr>
+  {{if .Article}}
+  <tr>
+    <td>{{.Article.Title}}</td>
+    <td>{{.Article.Author}}</td>
+    <td>{{.Article.Content}}</td>
+    <td><a href="/update?id={{.Article.Id}}">修改</a> </td>
+    <td><a href="/delete?id={{.Article.Id}}">删除</a></td>
+  </tr>
+
+  {{end}}
+</table>
+
+
+</body>
+</html>
