@@ -16,7 +16,7 @@ func (u *UpdateController) Get() {
 	iD := u.GetString("id")
 	//fmt.Println(iD)
 	id := utils.StrToInt(iD)
-	fmt.Println(id)
+	//fmt.Println(id)
 	o := orm.NewOrm()
 	article := models.Article{Id: id}
 	//========================

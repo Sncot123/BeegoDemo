@@ -10,5 +10,6 @@ func init() {
 	beego.Router("/add", &controllers.AddController{})
 	beego.Router("/update/?:id", &controllers.UpdateController{})
 	beego.Router("/delete/?:id", &controllers.DeleteController{})
+	beego.Router("/test", &controllers.TestController{})
 
 }

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+</head>
+<body>
+<table>
+  <tr>
+    <th>文章标题</th>
+    <th>文章作者</th>
+    <th>文章内容</th>
+  </tr>
+  {{if .articles}}
+    {{range .articles}}
+    <tr>
+        <td>{{.Title}}</td>
+        <td>{{.Author}}</td>
+        <td>{{.Content}}</td>
+        <td><a href="/update?id={{.Id}}">修改</a></td>
+        <td><a href="/delete?id={{.Id}}">删除</a></td>
+    </tr>
+    {{end}}
+  {{end}}
+</table>
+</body>
+</html>

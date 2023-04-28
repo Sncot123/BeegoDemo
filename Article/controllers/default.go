@@ -12,20 +12,22 @@ type MainController struct {
 }
 
 func (c *MainController) Get() {
-	article := models.Article{Id: 3}
+	articles := []models.Article{}
 	o := orm.NewOrm()
-	err := o.Read(&article)
+	qt := o.QueryTable("article")
+	_, err := qt.All(&articles)
 	if err != nil {
 		if err == orm.ErrNoRows {
-			fmt.Println("未查到数据！！！！")
-			c.TplName = "index.html"
+			c.Data["data"] = fmt.Sprintf("未查到数据！！！%s", err)
+			c.TplName = "error.html"
 			return
 		}
-		fmt.Println("未知错误！ err:", err)
+		c.Data["data"] = fmt.Sprintf("未知错误！！！%s", err)
+		c.TplName = "error.html"
 		return
 	}
 	//=======================
-	fmt.Println(article)
-	c.Data["Article"] = article
+	//fmt.Println(article)
+	c.Data["Articles"] = articles
 	c.TplName = "index.html"
 }
