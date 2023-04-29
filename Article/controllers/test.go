@@ -29,6 +29,23 @@ func (t *TestController) Get() {
 		return
 	}
 	t.Data["articles"] = articles
+
+	beego.Emergency("emergency 不啦不啦不啦！！！！！")
+	beego.Alert("alert 不啦不啦不阿拉！！！！！  ")
+	beego.Critical("critical  不啦不啦不阿拉！！！！！")
+	beego.Error("error  不啦不啦不阿拉！！！！！")
+	beego.Warning("warning  不啦不啦不阿拉！！！！！")
+	beego.Notice("notice  不啦不啦不阿拉！！！！！")
+	beego.Informational("informational  不啦不啦不阿拉！！！！！")
+	beego.Info("info  不啦不啦不阿拉！！！！！")
+	beego.Debug("debug 不啦不啦不阿拉！！！！！！")
 	t.TplName = "test.html"
-	//https: //subs.mm2023.top//link/srFq8nbKwk2czR20?sub=4
+	//LevelEmergency = iota
+	//LevelAlert
+	//LevelCritical
+	//LevelError
+	//LevelWarning
+	//LevelNotice
+	//LevelInformational
+	//LevelDebug
 }
